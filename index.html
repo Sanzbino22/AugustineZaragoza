@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Augustine Zaragoza AR Experience</title>
+  
+  <!-- Loads <model-viewer> for modern browsers -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      --poster-color: transparent;
+    }
+
+    #ar-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The <model-viewer> component core code -->
+  <model-viewer 
+    src="AugustineZaragoza-v1.glb" 
+    ar 
+    ar-modes="webxr scene-viewer quick-look" 
+    camera-controls 
+    tone-mapping="neutral" 
+    poster="poster.webp" 
+    shadow-intensity="1" 
+    auto-rotate>
+    
+    <!-- AR Button Customization -->
+    <button slot="ar-button" id="ar-button">
+      👋 View in your space
+    </button>
+    
+    <!-- Fallback/Loading Poster (Optional) -->
+    <div class="progress-bar" slot="progress-bar">
+      <div class="update-bar"></div>
+    </div>
+  </model-viewer>
+
+</body>
+</html>
